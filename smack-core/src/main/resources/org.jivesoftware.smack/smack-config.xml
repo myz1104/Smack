@@ -8,7 +8,7 @@
     </startupClasses>
 
     <optionalStartupClasses>
-        <className>org.jivesoftware.smack.util.dns.JavaxResolver</className>
+        <className>org.jivesoftware.smack.util.dns.javax.JavaxResolver</className>
         <className>org.jivesoftware.smackx.ExtensionsProviderInitializer</className>
         <className>org.jivesoftware.smackx.ExtensionsStartupClasses</className>
         <className>org.jivesoftware.smackx.ExperimentalProviderInitializer</className>
