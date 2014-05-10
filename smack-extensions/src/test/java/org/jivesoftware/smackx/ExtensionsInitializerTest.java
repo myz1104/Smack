@@ -18,7 +18,7 @@ package org.jivesoftware.smackx;
 
 import static org.junit.Assert.assertTrue;
 
-import org.jivesoftware.smack.initalizer.extensions.ExtensionsInitializer;
+import org.jivesoftware.smack.initializer.extensions.ExtensionsInitializer;
 import org.junit.Test;
 
 public class ExtensionsInitializerTest {

@@ -1,6 +1,6 @@
 /**
  *
- * Copyright the original author or authors
+ * Copyright 2014 Florian Schmaus
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,10 +30,10 @@ import org.jivesoftware.smack.provider.ProviderManager;
 import org.jivesoftware.smack.util.FileUtils;
 
 /**
- * Loads the provider file defined by the URL returned by {@link #getProviderUrl()}.  This file will be loaded on Smack initialization.
+ * Loads the provider file defined by the URL returned by {@link #getProvidersUrl()} and the generic
+ * smack configuration file returned {@link #getConfigUrl()}.
  * 
- * @author Robin Collier
- *
+ * @author Florian Schmaus
  */
 public abstract class UrlInitializer implements SmackInitializer {
     private static final Logger LOGGER = Logger.getLogger(UrlInitializer.class.getName());

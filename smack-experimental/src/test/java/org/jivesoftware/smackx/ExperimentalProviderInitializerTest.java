@@ -18,7 +18,7 @@ package org.jivesoftware.smackx;
 
 import static org.junit.Assert.assertTrue;
 
-import org.jivesoftware.smack.initalizer.experimental.ExperimentalInitializer;
+import org.jivesoftware.smack.initializer.experimental.ExperimentalInitializer;
 import org.junit.Test;
 
 public class ExperimentalProviderInitializerTest {

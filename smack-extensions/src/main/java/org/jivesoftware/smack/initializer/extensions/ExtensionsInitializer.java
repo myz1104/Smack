@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.jivesoftware.smack.initalizer.extensions;
+package org.jivesoftware.smack.initializer.extensions;
 
 import org.jivesoftware.smack.initializer.UrlInitializer;
 

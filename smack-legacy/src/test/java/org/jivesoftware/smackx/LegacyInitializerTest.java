@@ -18,7 +18,7 @@ package org.jivesoftware.smackx;
 
 import static org.junit.Assert.assertTrue;
 
-import org.jivesoftware.smack.initalizer.legacy.LegacyInitializer;
+import org.jivesoftware.smack.initializer.legacy.LegacyInitializer;
 import org.junit.Test;
 
 public class LegacyInitializerTest {
