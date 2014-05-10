@@ -1,0 +1,6 @@
+<component enabled="true" immediate="true"
+	name="org.jivesoftware.smack.initializer.extensions.ExtensionsInitializer"
+	activate="initialize">
+	<implementation
+		class="org.jivesoftware.smack.initializer.extensions.ExtensionsInitializer" />
+</component>
