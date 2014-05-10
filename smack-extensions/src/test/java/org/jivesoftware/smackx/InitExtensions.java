@@ -16,11 +16,12 @@
  */
 package org.jivesoftware.smackx;
 
+import org.jivesoftware.smack.initalizer.extensions.ExtensionsInitializer;
+
 public class InitExtensions {
 
     static {
-        (new ExtensionsProviderInitializer()).initialize();
-        (new ExtensionsStartupClasses()).initialize();
+        (new ExtensionsInitializer()).initialize();
     }
 
 }

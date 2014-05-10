@@ -1,6 +1,6 @@
 /**
  *
- * Copyright the original author or authors
+ * Copyright 2014 Florian Schmaus
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,19 +14,24 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.jivesoftware.smackx;
+package org.jivesoftware.smack.initalizer.extensions;
 
-import org.jivesoftware.smack.initializer.UrlProviderFileInitializer;
+import org.jivesoftware.smack.initializer.UrlInitializer;
 
 /**
- * Loads the default provider file for the Smack extensions on initialization.
+ * Initializes the providers in the experimental code stream.
  * 
- * @author Robin Collier
- *
+ * @author Florian Schmaus
  */
-public class ExtensionsProviderInitializer extends UrlProviderFileInitializer {
+public class ExtensionsInitializer extends UrlInitializer {
+
     @Override
-    protected String getFilePath() {
+    protected String getProvidersUrl() {
         return "classpath:org.jivesoftware.smackx/extensions.providers";
+    }
+
+    @Override
+    protected String getConfigUrl() {
+        return "classpath:org.jivesoftware.smackx/extensions.xml";
     }
 }

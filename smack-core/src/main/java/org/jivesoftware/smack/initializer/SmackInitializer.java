@@ -30,6 +30,7 @@ import org.jivesoftware.smack.SmackConfiguration;
  *
  */
 public interface SmackInitializer {
-    void initialize();
+    public void initialize();
+    public void initialize(ClassLoader classLoader);
     List<Exception> getExceptions();
 }

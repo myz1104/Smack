@@ -18,13 +18,14 @@ package org.jivesoftware.smackx;
 
 import static org.junit.Assert.assertTrue;
 
+import org.jivesoftware.smack.initalizer.experimental.ExperimentalInitializer;
 import org.junit.Test;
 
 public class ExperimentalProviderInitializerTest {
 
     @Test
-    public void testExperimentalProviderInitialzer() {
-        ExperimentalProviderInitializer epi = new ExperimentalProviderInitializer();
+    public void testExperimentalInitialzer() {
+        ExperimentalInitializer epi = new ExperimentalInitializer();
         epi.initialize();
         assertTrue(epi.getExceptions().size() == 0);
     }

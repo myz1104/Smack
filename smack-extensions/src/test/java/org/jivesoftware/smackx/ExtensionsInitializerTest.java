@@ -16,12 +16,18 @@
  */
 package org.jivesoftware.smackx;
 
-import org.jivesoftware.smack.initializer.UrlProviderFileInitializer;
+import static org.junit.Assert.assertTrue;
 
-public class WorkgroupProviderInitializer  extends UrlProviderFileInitializer {
+import org.jivesoftware.smack.initalizer.extensions.ExtensionsInitializer;
+import org.junit.Test;
 
-    @Override
-    protected String getFilePath() {
-        return "classpath:org.jivesoftware.smackx/workgroup.providers";
+public class ExtensionsInitializerTest {
+
+    @Test
+    public void testExtensionInitializer() {
+        ExtensionsInitializer ei = new ExtensionsInitializer();
+        ei.initialize();
+        assertTrue(ei.getExceptions().size() == 0);
     }
+
 }

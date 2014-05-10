@@ -18,15 +18,15 @@ package org.jivesoftware.smackx;
 
 import static org.junit.Assert.assertTrue;
 
+import org.jivesoftware.smack.initalizer.legacy.LegacyInitializer;
 import org.junit.Test;
 
-public class ExtensionsStartupClassesTest {
+public class LegacyInitializerTest {
 
     @Test
-    public void testExtensiosnStartupClasses() {
-        ExtensionsStartupClasses esc = new ExtensionsStartupClasses();
-        esc.initialize();
-        assertTrue(esc.getExceptions().size() == 0);
+    public void testWorkgroupProviderInitializer() {
+        LegacyInitializer lpi = new LegacyInitializer();
+        lpi.initialize();
+        assertTrue(lpi.getExceptions().size() == 0);
     }
-
 }

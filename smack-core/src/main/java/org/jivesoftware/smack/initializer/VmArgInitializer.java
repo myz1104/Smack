@@ -26,7 +26,7 @@ import org.jivesoftware.smack.provider.ProviderManager;
  * @author Robin Collier
  *
  */
-public class VmArgInitializer extends UrlProviderFileInitializer {
+public class VmArgInitializer extends UrlInitializer {
 
     protected String getFilePath() {
         return System.getProperty("smack.provider.file");
