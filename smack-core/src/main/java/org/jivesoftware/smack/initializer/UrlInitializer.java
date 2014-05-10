@@ -18,7 +18,6 @@ package org.jivesoftware.smack.initializer;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.logging.Level;
@@ -38,19 +37,15 @@ import org.jivesoftware.smack.util.FileUtils;
 public abstract class UrlInitializer implements SmackInitializer {
     private static final Logger LOGGER = Logger.getLogger(UrlInitializer.class.getName());
 
-    private List<Exception> exceptions = new LinkedList<Exception>();
-
-    public void initialize() {
-        initialize(null);
+    @Override
+    public List<Exception> initialize() {
+        return initialize(null);
     }
 
     @Override
-    public void initialize(ClassLoader classLoader) {
-        if (classLoader == null) {
-            classLoader = getClassLoader();
-        }
-
+    public List<Exception> initialize(ClassLoader classLoader) {
         InputStream is;
+        final List<Exception> exceptions = new LinkedList<Exception>();
         final String providerUrl = getProvidersUrl();
         if (providerUrl != null) {
             try {
@@ -83,11 +78,7 @@ public abstract class UrlInitializer implements SmackInitializer {
                 exceptions.add(e);
             }
         }
-    }
-
-    @Override
-    public List<Exception> getExceptions() {
-        return Collections.unmodifiableList(exceptions);
+        return exceptions;
     }
 
     protected String getProvidersUrl() {
@@ -97,15 +88,4 @@ public abstract class UrlInitializer implements SmackInitializer {
     protected String getConfigUrl() {
         return null;
     }
-
-    /**
-     * Returns an array of class loaders to load resources from.
-     * 
-     * @return an array of ClassLoader instances.
-     */
-    protected ClassLoader getClassLoader() {
-        return null;
-    }
-    
-    
 }

@@ -18,6 +18,8 @@ package org.jivesoftware.smackx;
 
 import static org.junit.Assert.assertTrue;
 
+import java.util.List;
+
 import org.jivesoftware.smack.initializer.legacy.LegacyInitializer;
 import org.junit.Test;
 
@@ -26,7 +28,7 @@ public class LegacyInitializerTest {
     @Test
     public void testWorkgroupProviderInitializer() {
         LegacyInitializer lpi = new LegacyInitializer();
-        lpi.initialize();
-        assertTrue(lpi.getExceptions().size() == 0);
+        List<Exception> exceptions = lpi.initialize();
+        assertTrue(exceptions.size() == 0);
     }
 }

@@ -16,6 +16,9 @@
  */
 package org.jivesoftware.smack.initializer;
 
+import java.util.Collections;
+import java.util.List;
+
 import org.jivesoftware.smack.provider.ProviderManager;
 
 
@@ -33,9 +36,10 @@ public class VmArgInitializer extends UrlInitializer {
     }
 
     @Override
-    public void initialize() {
+    public List<Exception> initialize() {
         if (getFilePath() != null) {
             super.initialize();
         }
+        return Collections.emptyList();
     }
 }

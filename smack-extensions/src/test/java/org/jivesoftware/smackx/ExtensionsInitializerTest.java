@@ -18,6 +18,8 @@ package org.jivesoftware.smackx;
 
 import static org.junit.Assert.assertTrue;
 
+import java.util.List;
+
 import org.jivesoftware.smack.initializer.extensions.ExtensionsInitializer;
 import org.junit.Test;
 
@@ -26,8 +28,8 @@ public class ExtensionsInitializerTest {
     @Test
     public void testExtensionInitializer() {
         ExtensionsInitializer ei = new ExtensionsInitializer();
-        ei.initialize();
-        assertTrue(ei.getExceptions().size() == 0);
+        List<Exception> exceptions = ei.initialize();
+        assertTrue(exceptions.size() == 0);
     }
 
 }

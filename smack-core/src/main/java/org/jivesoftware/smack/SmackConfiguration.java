@@ -388,8 +388,7 @@ public final class SmackConfiguration {
         }
         if (SmackInitializer.class.isAssignableFrom(initClass)) {
             SmackInitializer initializer = (SmackInitializer) initClass.newInstance();
-            initializer.initialize();
-            List<Exception> exceptions = initializer.getExceptions();
+            List<Exception> exceptions = initializer.initialize();
             if (exceptions.size() == 0) {
                 LOGGER.log(Level.FINE, "Loaded SmackInitializer " + className);
             } else {

@@ -18,6 +18,8 @@ package org.jivesoftware.smackx;
 
 import static org.junit.Assert.assertTrue;
 
+import java.util.List;
+
 import org.jivesoftware.smack.initializer.experimental.ExperimentalInitializer;
 import org.junit.Test;
 
@@ -26,7 +28,7 @@ public class ExperimentalProviderInitializerTest {
     @Test
     public void testExperimentalInitialzer() {
         ExperimentalInitializer epi = new ExperimentalInitializer();
-        epi.initialize();
-        assertTrue(epi.getExceptions().size() == 0);
+        List<Exception> exceptions = epi.initialize();
+        assertTrue(exceptions.size() == 0);
     }
 }
