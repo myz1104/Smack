@@ -55,7 +55,7 @@ public abstract class UrlInitializer implements SmackInitializer {
                     LOGGER.log(Level.FINE, "Loading providers for providerUrl [" + providerUrl
                                     + "]");
                     ProviderFileLoader pfl = new ProviderFileLoader(is);
-                    ProviderManager.getInstance().addLoader(pfl);
+                    ProviderManager.addLoader(pfl);
                     exceptions.addAll(pfl.getLoadingExceptions());
                 }
                 else {

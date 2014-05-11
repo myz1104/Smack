@@ -156,7 +156,11 @@ public class PacketParserUtils {
     public static String parseContentDepth(XmlPullParser parser, int depth) throws XmlPullParserException, IOException {
         StringBuilder content = new StringBuilder();
         while (!(parser.next() == XmlPullParser.END_TAG && parser.getDepth() == depth)) {
-            content.append(parser.getText());
+            String text = parser.getText();
+            if (text == null) {
+                throw new IllegalStateException("Parser should never return 'null' on getText() here");
+            }
+            content.append(text);
         }
         return content.toString();
     }
@@ -254,12 +258,12 @@ public class PacketParserUtils {
      */
     public static IQ parseIQ(XmlPullParser parser, XMPPConnection connection) throws Exception {
         IQ iqPacket = null;
-
-        String id = parser.getAttributeValue("", "id");
-        String to = parser.getAttributeValue("", "to");
-        String from = parser.getAttributeValue("", "from");
-        IQ.Type type = IQ.Type.fromString(parser.getAttributeValue("", "type"));
         XMPPError error = null;
+
+        final String id = parser.getAttributeValue("", "id");
+        final String to = parser.getAttributeValue("", "to");
+        final String from = parser.getAttributeValue("", "from");
+        final IQ.Type type = IQ.Type.fromString(parser.getAttributeValue("", "type"));
 
         boolean done = false;
         while (!done) {
@@ -284,7 +288,7 @@ public class PacketParserUtils {
                 // Otherwise, see if there is a registered provider for
                 // this element name and namespace.
                 else {
-                    Object provider = ProviderManager.getInstance().getIQProvider(elementName, namespace);
+                    Object provider = ProviderManager.getIQProvider(elementName, namespace);
                     if (provider != null) {
                         if (provider instanceof IQProvider) {
                             iqPacket = ((IQProvider)provider).parseIQ(parser);
@@ -657,7 +661,7 @@ public class PacketParserUtils {
             throws Exception
     {
         // See if a provider is registered to handle the extension.
-        Object provider = ProviderManager.getInstance().getExtensionProvider(elementName, namespace);
+        Object provider = ProviderManager.getExtensionProvider(elementName, namespace);
         if (provider != null) {
             if (provider instanceof PacketExtensionProvider) {
                 return ((PacketExtensionProvider)provider).parseExtension(parser);
