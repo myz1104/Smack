@@ -23,7 +23,7 @@ import java.util.List;
 import org.jivesoftware.smack.initializer.experimental.ExperimentalInitializer;
 import org.junit.Test;
 
-public class ExperimentalProviderInitializerTest {
+public class ExperimentalInitializerTest {
 
     @Test
     public void testExperimentalInitialzer() {

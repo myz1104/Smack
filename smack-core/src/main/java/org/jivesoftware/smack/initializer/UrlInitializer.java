@@ -42,12 +42,12 @@ public abstract class UrlInitializer implements SmackInitializer {
      * must have a void return type.
      */
     public final void activate() {
-        initialize(this.getClass().getClassLoader());
+        initialize();
     }
 
     @Override
     public List<Exception> initialize() {
-        return initialize(null);
+        return initialize(this.getClass().getClassLoader());
     }
 
     @Override
@@ -80,7 +80,7 @@ public abstract class UrlInitializer implements SmackInitializer {
         if (configUrl != null) {
             try {
                 is = FileUtils.getStreamForUrl(configUrl, classLoader);
-                SmackConfiguration.processConfigFile(is, exceptions);
+                SmackConfiguration.processConfigFile(is, exceptions, classLoader);
             }
             catch (Exception e) {
                 exceptions.add(e);
