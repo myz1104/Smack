@@ -37,6 +37,14 @@ import org.jivesoftware.smack.util.FileUtils;
 public abstract class UrlInitializer implements SmackInitializer {
     private static final Logger LOGGER = Logger.getLogger(UrlInitializer.class.getName());
 
+    /**
+     * A simple wrapper around {@link #initialize} for OSGi, as the activate method of a component
+     * must have a void return type.
+     */
+    public final void activate() {
+        initialize(this.getClass().getClassLoader());
+    }
+
     @Override
     public List<Exception> initialize() {
         return initialize(null);
@@ -54,7 +62,7 @@ public abstract class UrlInitializer implements SmackInitializer {
                 if (is != null) {
                     LOGGER.log(Level.FINE, "Loading providers for providerUrl [" + providerUrl
                                     + "]");
-                    ProviderFileLoader pfl = new ProviderFileLoader(is);
+                    ProviderFileLoader pfl = new ProviderFileLoader(is, classLoader);
                     ProviderManager.addLoader(pfl);
                     exceptions.addAll(pfl.getLoadingExceptions());
                 }
@@ -71,7 +79,7 @@ public abstract class UrlInitializer implements SmackInitializer {
         final String configUrl = getConfigUrl();
         if (configUrl != null) {
             try {
-                is = FileUtils.getStreamForUrl(configUrl, null);
+                is = FileUtils.getStreamForUrl(configUrl, classLoader);
                 SmackConfiguration.processConfigFile(is, exceptions);
             }
             catch (Exception e) {

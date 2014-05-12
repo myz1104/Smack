@@ -1,6 +1,6 @@
-<component enabled="true" immediate="true"
-	name="org.jivesoftware.smack.initializer.experimental.ExperimentalInitializer"
-	activate="initialize">
+<?xml version="1.0" encoding="UTF-8"?>
+<src:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.2.0"
+	enabled="true" immediate="true" name="Smack Experimental API">
 	<implementation
 		class="org.jivesoftware.smack.initializer.experimental.ExtensionsInitializer" />
-</component>
+</src:component>

@@ -1,6 +1,6 @@
-<component enabled="true" immediate="true"
-	name="org.jivesoftware.smack.initializer.legacy.LegacyInitializer"
-	activate="initialize">
+<?xml version="1.0" encoding="UTF-8"?>
+<src:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.2.0"
+	enabled="true" immediate="true" name="Smack Legacy API">
 	<implementation
 		class="org.jivesoftware.smack.initializer.legacy.LegacyInitializer" />
-</component>
+</src:component>
